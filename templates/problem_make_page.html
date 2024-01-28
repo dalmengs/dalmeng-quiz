@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('font', path='font.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>문제 만들기</title>
+</head>
+<body>
+    <div id="modal" style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 100px; display: none; line-height: 40px;">
+        문제를 만들고 있습니다.<br>
+        잠시만 기다려 주세요...
+    </div>
+    <div id="main" style="display: block;">
+        <br><br><div style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+            [문제 만들기]
+        </div><br>
+        &nbsp;&nbsp;&nbsp;인공지능이 문제를 만들어 줍니다.<br>
+        &nbsp;&nbsp;&nbsp;현재는 GPT-3.5 모델을 사용하고 있습니다.<br><br>
+        <div style="text-align: center; font-family: 'content-bold'; font-size: 20px; margin-top: 10px;">
+           문제 주제 / 의도<br>
+            <span class="description" style="font-family: 'content';">문제의 주제와 출제 의도를 적습니다.</span>
+        </div>
+        <hr>
+        <span style="line-height: 25px;">
+            <div style="text-align: center; font-family: 'content-extrabold'; font-size: 20px; margin-bottom: 10px; ">예시</div>
+            &nbsp;&nbsp;&nbsp;자료구조(배열, 스택, 큐)를 이해하고 있는가?<br>
+            &nbsp;&nbsp;&nbsp;대규모 트래픽 대응을 할 수 있는가?<br>
+            &nbsp;&nbsp;&nbsp;데이터베이스 설계를 할 수 있는가?
+        </span>
+        <hr>
+        <textarea id="topic" style="width: 99%; height: 150px; resize: none; border-radius: 8px;"></textarea>
+        <br>
+        <div style="text-align: center; margin-top: 10px;">
+            <button style="padding: 5px; width: 99%; height: 40px; font-size: 17px; border-radius: 8px; font-size: 17px;" onclick="make_problem()">문제 만들기</button>
+        </div>
+    </div>
+   
+</body>
+</html>
+<script>
+    const topic = document.getElementById("topic");
+    const main = document.getElementById("main");
+    const modal = document.getElementById("modal");
+
+    function make_problem(){
+        main.style.display = "none";
+        modal.style.display = "block";
+
+        data = {
+            "topic": topic.value
+        }
+        $.ajax({
+            type : "post",
+            url : "/problem/create",
+            data : JSON.stringify(data),
+            contentType : "application/json; charset=utf-8",
+            error : function(err){
+                alert("문제를 생성하는데 실패했습니다. 잠시후 다시 시도해주세요.")
+                window.location.href = "/problem/create";
+            },
+            success : function(res){
+                alert("문제를 만들었습니다!")
+                window.location.href = "/problem/" + res["problem_id"];
+            }
+        });
+    }
+</script>
+<style>
+    body{
+        font-family: 'content';
+        font-size: 17px;
+        width: 500px;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        border: 1px solid black;
+        margin: 0 auto;
+        line-height: 25px;
+    }
+
+    .description{
+        color: gray;
+        font-size: 14px;
+    }
+</style>

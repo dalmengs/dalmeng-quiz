@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('font', path='font.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>채점 목록</title>
+</head>
+<body>
+    <br><br>
+    <div style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+        [&nbsp;&nbsp;채점 목록&nbsp;&nbsp;]<br>
+        <span class="description" style="font-family: 'content';">채점 기록을 볼 수 있습니다.</span>
+    </div><br><br>
+    {% for sp in data %}
+        <a href="/submit/{{ sp.submit_id }}" style="text-decoration: none; color: white;">
+            <span style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+                문제 {{ sp.problem_id }}.
+            </span>
+            <span style="text-align: center; font-family: 'content-extrabold'; font-size: 20px; width: 100%;">
+                {{ sp.ratio }}%&nbsp;
+            </span>
+            <span style="font-size: 16px; color: gray; font-family: 'content';">( {{ sp.student_score }} / {{ sp.score}} )</span>
+        </a><br><br>
+    {% endfor %}
+    
+    <br><br><br><br><br>
+   
+</body>
+</html>
+<script>
+</script>
+<style>
+    body{
+        font-family: 'content';
+        font-size: 17px;
+        width: 500px;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        border: 1px solid black;
+        margin: 0 auto;
+        line-height: 25px;
+    }
+
+    .description{
+        color: gray;
+        font-size: 14px;
+    }
+</style>

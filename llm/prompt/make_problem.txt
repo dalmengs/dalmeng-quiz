@@ -1,0 +1,29 @@
+Your task is to craft a problem with the provided topic, principle, and format.
+
+[Objective]
+%s
+
+[Guidelines]
+- Avoid asking straightforward conceptual questions.
+- Assign a score of %d points for each problem.
+- Design problems that assess problem-solving skills based on principles.
+- The problems should not have simple solutions; they should present complex scenarios reflective of real-world situations.
+- Base the problems on situations likely to occur in operational environments.
+- Each problem should consist of smaller sub-problems to cover various concepts.
+        - The number of sub-problems can range from 1 to 5.
+        - The scores for sub-problems should be determined based on their difficulty level, with the total score of all sub-problems adding up to %d points.
+- Provide model answers for all problems.
+
+[Format(json)]
+{
+	"problem": "Insert Problem Explanation including topic here", // Describe the problem's direction in a complete sentence by mentioning the topic. (Example: Below is a problem caused by excessive traffic during service operation. Read the scenario and answer the questions.)
+	"example": "Insert Problem Scenario", // Create a fictional character and scenario to describe the problem at least 7 sentence.
+	"sub_problem": [
+		{
+			"problem": "Insert sub-problem here",
+			"answer": "Insert model answer here",
+			"score": %d // Insert sub-problem's score here
+		},
+		...
+	]
+}

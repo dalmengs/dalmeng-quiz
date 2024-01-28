@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('font', path='font.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>메인 페이지</title>
+</head>
+<body>
+    <br><br>
+    <div style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+        [&nbsp;&nbsp;메인 페이지&nbsp;&nbsp;]<br>
+        <span class="description" style="font-family: 'content';">인공지능이 내는 문제를 풀어볼 수 있습니다.</span>
+    </div><br>
+    <div style="text-align: center;">
+        <button style="padding: 5px; width: 99%; height: 45px; font-size: 17px; border-radius: 8px; font-size: 17px;" onclick="window.location.href='/problem'">모든 문제 보기</button>
+    </div>
+    <div style="text-align: center;">
+        <button style="padding: 5px; width: 99%; height: 45px; font-size: 17px; border-radius: 8px; font-size: 17px; margin-top: 10px;" onclick="window.location.href='/submit'">채점 기록 보기</button>
+    </div>
+    <div style="text-align: center;">
+        <button style="padding: 5px; width: 99%; height: 45px; font-size: 17px; border-radius: 8px; font-size: 17px; margin-top: 10px;" onclick="window.location.href='/problem/create'">문제 만들기</button>
+    </div>
+    
+    <br><br><br><br><br>
+   
+</body>
+</html>
+<script>
+</script>
+<style>
+    body{
+        font-family: 'content';
+        font-size: 17px;
+        width: 500px;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        border: 1px solid black;
+        margin: 0 auto;
+        line-height: 25px;
+    }
+
+    .description{
+        color: gray;
+        font-size: 14px;
+    }
+</style>

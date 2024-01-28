@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'content';
+    src: url('../font/rg.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'content-bold';
+    src: url('../font/bd.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'content-extrabold';
+    src: url('../font/eb.ttf') format('truetype');
+}

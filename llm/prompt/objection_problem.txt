@@ -1,0 +1,28 @@
+A student has submitted an appeal regarding their grading.
+You have been provided with the problem, model answer, the student's response, and the details of the appeal. Please assess whether this appeal should be accepted.
+If the appeal cannot be accepted, provide a reason for the decision.
+On the other hand, if the appeal can be accepted, reevaluate and modify the score received and provide an explanation for the answer.
+
+[Problem]
+%s
+
+[Model Answer]
+%s
+
+[Student's Answer]
+%s
+
+[Evaluation about student's answer]
+%s
+
+[Student's Received Score]
+%f
+
+[Appeal Details]
+%s
+
+The result format (JSON) should be as follows:
+{
+	"message": "Enter the appeal review result here in Korean",
+	"score": 5 // Enter the final score here (even if the appeal is not accepted)
+}

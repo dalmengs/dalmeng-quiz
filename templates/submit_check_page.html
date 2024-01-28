@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('font', path='font.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>채점 확인</title>
+</head>
+<body>
+    <br><br>
+    <div style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+        [&nbsp;&nbsp;Problem {{ data.problem_id }}&nbsp;&nbsp;]
+    </div><br><br>
+    
+    <span style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+        Q
+    </span> {{ data.problem }} ({{ data.student_score }} / {{ data.score }} pts.)
+    <hr>{{ data.example}}<hr><br>
+    {% for sp in data.sub_problem %}
+        <span style="text-align: center; font-family: 'content-extrabold'; font-size: 25px; margin-top: 10px;">
+            {{ sp.sub_problem_id }}.
+        </span>&nbsp;&nbsp;{{ sp.problem }} ({{ sp.student_score }} / {{ sp.score }} pts.) <br><br>
+        → {{ sp.student_answer }}
+
+        <table style="width: 85%; margin: 0; margin-left:auto; margin-right:auto; color: rgb(160, 160, 160); font-size: 16px; line-height: 20px;">
+            <tr>
+                <td style="text-align: center; padding-top: 15px;">
+                    모범 답안 - Model Answer
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ sp.answer }}
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; padding-top: 15px;">
+                    답안 설명 - Explanation
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ sp.explanation }}
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; padding-top: 15px;">
+                    답안 평가 - Answer Evaluation
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ sp.evaluation }}
+                </td>
+            </tr>
+        </table>
+        <div>
+        <br><br>
+        </div>
+    {% endfor %}
+    <br><br><br><br><br>
+   
+</body>
+</html>
+<script>
+</script>
+<style>
+    body{
+        font-family: 'content';
+        font-size: 17px;
+        width: 500px;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        border: 1px solid black;
+        margin: 0 auto;
+        line-height: 25px;
+    }
+
+    .description{
+        color: gray;
+        font-size: 14px;
+    }
+</style>

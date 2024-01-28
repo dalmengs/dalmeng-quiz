@@ -1,0 +1,26 @@
+You have been provided with a problem, a model answer, and a student's answer.
+
+%s
+
+Please assess and assign scores according to the following criteria and format:
+
+- If the answer thoroughly addresses what the problem asks, award full marks.
+- No deductions for missing information not explicitly requested by the problem.
+- Grammar errors or language deficiencies should not result in score deductions.
+- Deductions are only applicable if the answer fails to address the core elements of the problem or if the answer is incorrect.
+- Extra points may be given if a response provides valuable insights unintentionally.
+- Scores can be in decimal form, such as 1.5 points or 2.4 points.
+- Use JSON format for assessment, following this template:
+{
+    "result": [
+        { // Assessment for Problem 1
+            "score": 2.3,
+            "explanation": "Provide additional comments on the student's response here.",
+            "evaluation": "Assess the student's answer and provide feedback here."
+        },
+        { // Assessment for Problem 2
+            // ...
+        },
+        // ...
+    ]
+}
