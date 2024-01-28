@@ -5,6 +5,7 @@ from llm.objection_problem import objection_problem
 from fastapi import FastAPI
 from fastapi import Request
 import traceback
+import uvicorn
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -87,3 +88,6 @@ def submit_list_page(request: Request):
 @app.get("/")
 def main_page(request: Request):
     return templates.TemplateResponse("main_page.html", {"request": request})
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
